@@ -56,7 +56,7 @@ build {
       "git clone https://github.com/wazuh/wazuh-docker.git -b v4.3.10",
       "cd wazuh-docker/single-node",
       "docker-compose -f generate-indexer-certs.yml run --rm generator",
-      "docker-compose up -d"
+      "docker-compose up -d",
 
       # Clean
       "rm -rf .sudo_as_admin_successful",
