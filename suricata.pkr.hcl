@@ -51,8 +51,8 @@ build {
       #Suricata
       "sudo add-apt-repository -y ppa:oisf/suricata-stable"
       "sudo apt install suricata -y",
-      "sudo systemctl enable suricata.service"
-      "sudo systemctl stop suricata.service"
+      "sudo systemctl enable suricata.service",
+      "sudo systemctl stop suricata.service",
       "sudo sed -i 's/community-id: false/community-id: true /g' /etc/suricata/suricata.yaml",
       "sudo bash -c 'printf "detect-engine:
   - rule-reload: true" >> /etc/suricata/suricata.yaml'",
