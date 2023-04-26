@@ -49,24 +49,18 @@ build {
       "sudo sed -i 's/MANAGER_IP/172.17.17.17/g' /var/ossec/etc/ossec.conf",
 
       #Suricata
-      "sudo add-apt-repository -y ppa:oisf/suricata-stable"
+      "sudo add-apt-repository -y ppa:oisf/suricata-stable",
       "sudo apt install suricata -y",
       "sudo systemctl enable suricata.service",
       "sudo systemctl stop suricata.service",
       "sudo sed -i 's/community-id: false/community-id: true /g' /etc/suricata/suricata.yaml",
-      "sudo bash -c 'printf "detect-engine:
-  - rule-reload: true" >> /etc/suricata/suricata.yaml'",
+      "sudo bash -c 'printf \"detect-engine:\n - rule-reload: true\" >> /etc/suricata/suricata.yaml'",
       "sudo suricata-update",
       "sudo suricata-update list-sources",
       "sudo suricata -T -c /etc/suricata/suricata.yaml -v",
       "sudo systemctl start suricata.service",
       "sudo systemctl status suricata.service",
-      "sudo bash -c 'printf "<ossec_config>
-  <localfile>
-    <log_format>json</log_format>
-    <location>/var/log/suricata/eve.json</location>
-  </localfile>
-</ossec_config>" >> /var/ossec/etc/ossec.conf'",
+      "sudo bash -c 'printf \"<ossec_config> \n <localfile> \n <log_format>json</log_format> \n <location>/var/log/suricata/eve.json</location> \n </localfile> \n </ossec_config>\" >> /var/ossec/etc/ossec.conf'",
 
       # Clean
       "rm -rf .sudo_as_admin_successful",
