@@ -5,9 +5,11 @@ stages:
 validate_ubuntu:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-      changes: ubuntu.pkr.hcl
+      changes: 
+        - ubuntu.pkr.hcl
     - if: '$CI_COMMIT_BRANCH == "test"'
-      changes: ubuntu.pkr.hcl
+      changes: 
+        - ubuntu.pkr.hcl
   stage: validate
   script:
     - export YC_TOKEN=$(yc iam create-token)
@@ -20,9 +22,11 @@ validate_ubuntu:
 validate_wazuh:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-      changes: wazuh-server.pkr.hcl
+      changes: 
+        - wazuh-server.pkr.hcl
     - if: '$CI_COMMIT_BRANCH == "test"'
-      changes: wazuh-server.pkr.hcl
+      changes: 
+        - wazuh-server.pkr.hcl
   stage: validate
   script:
     - export YC_TOKEN=$(yc iam create-token)
@@ -35,7 +39,8 @@ validate_wazuh:
 build_ubuntu:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-      changes: ubuntu.pkr.hcl
+      changes: 
+        - ubuntu.pkr.hcl
   stage: build
   script:
     - export YC_TOKEN=$(yc iam create-token)
@@ -48,7 +53,8 @@ build_ubuntu:
 build_wazuh:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-      changes: wazuh-server.pkr.hcl
+      changes: 
+        - wazuh-server.pkr.hcl
   stage: build
   script:
     - export YC_TOKEN=$(yc iam create-token)
