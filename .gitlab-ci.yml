@@ -2,20 +2,20 @@ stages:
   - validate
   - build
 
-validate_ubuntu:
+validate_suricata:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes: 
-        - ubuntu.pkr.hcl
+        - suricata.pkr.hcl
     - if: '$CI_COMMIT_BRANCH == "test"'
       changes: 
-        - ubuntu.pkr.hcl
+        - suricata.pkr.hcl
   stage: validate
   script:
     - export YC_TOKEN=$YC_TOKEN
     - export YC_CLOUD_ID=$YC_CLOUD_ID
     - export YC_FOLDER_ID=$YC_FOLDER_ID
-    - packer validate ubuntu.pkr.hcl
+    - packer validate suricata.pkr.hcl
   tags:
     - shell
 
@@ -36,17 +36,17 @@ validate_wazuh:
   tags:
     - shell
 
-build_ubuntu:
+build_suricata:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes: 
-        - ubuntu.pkr.hcl
+        - suricata.pkr.hcl
   stage: build
   script:
     - export YC_TOKEN=$YC_TOKEN
     - export YC_CLOUD_ID=$YC_CLOUD_ID
     - export YC_FOLDER_ID=$YC_FOLDER_ID
-    - packer build -force  ubuntu.pkr.hcl
+    - packer build -force  suricata.pkr.hcl
   tags:
     - shell
 
