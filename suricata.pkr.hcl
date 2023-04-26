@@ -23,11 +23,11 @@ variable "YC_SUBNET_ID" {
 source "yandex" "yc-toolbox" {
   folder_id           = "${var.YC_FOLDER_ID}"
   source_image_family = "ubuntu-2004-lts"
-  ssh_username        = "suricata"
+  ssh_username        = "ubuntu"
   use_ipv4_nat        = "true"
   image_description   = "Yandex Cloud Ubuntu Toolbox image"
   image_family        = "my-images"
-  image_name          = "ubuntu"
+  image_name          = "suricata"
   subnet_id           = "${var.YC_SUBNET_ID}"
   disk_type           = "network-hdd"
   zone                = "${var.YC_ZONE}"
