@@ -12,9 +12,9 @@ validate_ubuntu:
         - ubuntu.pkr.hcl
   stage: validate
   script:
-    - export YC_TOKEN=$(yc iam create-token)
-    - export YC_CLOUD_ID=$(yc config get cloud-id)
-    - export YC_FOLDER_ID=$(yc config get folder-id)
+    - export YC_TOKEN=$YC_TOKEN
+    - export YC_CLOUD_ID=$YC_CLOUD_ID
+    - export YC_FOLDER_ID=$YC_FOLDER_ID
     - packer validate ubuntu.pkr.hcl
   tags:
     - shell
@@ -29,9 +29,9 @@ validate_wazuh:
         - wazuh-server.pkr.hcl
   stage: validate
   script:
-    - export YC_TOKEN=$(yc iam create-token)
-    - export YC_CLOUD_ID=$(yc config get cloud-id)
-    - export YC_FOLDER_ID=$(yc config get folder-id)
+    - export YC_TOKEN=$YC_TOKEN
+    - export YC_CLOUD_ID=$YC_CLOUD_ID
+    - export YC_FOLDER_ID=$YC_FOLDER_ID
     - packer validate wazuh-server.pkr.hcl
   tags:
     - shell
@@ -43,9 +43,9 @@ build_ubuntu:
         - ubuntu.pkr.hcl
   stage: build
   script:
-    - export YC_TOKEN=$(yc iam create-token)
-    - export YC_CLOUD_ID=$(yc config get cloud-id)
-    - export YC_FOLDER_ID=$(yc config get folder-id)
+    - export YC_TOKEN=$YC_TOKEN
+    - export YC_CLOUD_ID=$YC_CLOUD_ID
+    - export YC_FOLDER_ID=$YC_FOLDER_ID
     - packer build -force  ubuntu.pkr.hcl
   tags:
     - shell
@@ -57,9 +57,9 @@ build_wazuh:
         - wazuh-server.pkr.hcl
   stage: build
   script:
-    - export YC_TOKEN=$(yc iam create-token)
-    - export YC_CLOUD_ID=$(yc config get cloud-id)
-    - export YC_FOLDER_ID=$(yc config get folder-id)
+    - export YC_TOKEN=$YC_TOKEN
+    - export YC_CLOUD_ID=$YC_CLOUD_ID
+    - export YC_FOLDER_ID=$YC_FOLDER_ID
     - packer build -force  wazuh-server.pkr.hcl
   tags:
     - shell
