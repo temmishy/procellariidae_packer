@@ -46,7 +46,7 @@ build_ubuntu:
     - export YC_TOKEN=$(yc iam create-token)
     - export YC_CLOUD_ID=$(yc config get cloud-id)
     - export YC_FOLDER_ID=$(yc config get folder-id)
-    - packer build ubuntu.pkr.hcl
+    - packer build -force  ubuntu.pkr.hcl
   tags:
     - shell
 
@@ -60,6 +60,6 @@ build_wazuh:
     - export YC_TOKEN=$(yc iam create-token)
     - export YC_CLOUD_ID=$(yc config get cloud-id)
     - export YC_FOLDER_ID=$(yc config get folder-id)
-    - packer build wazuh-server.pkr.hcl
+    - packer build -force  wazuh-server.pkr.hcl
   tags:
     - shell
