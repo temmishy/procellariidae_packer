@@ -17,7 +17,7 @@ validate_ubuntu:
     - export YC_FOLDER_ID=$(yc config get folder-id)
     - packer validate ubuntu.pkr.hcl
   tags:
-    - packer-shell
+    - shell
 
 validate_wazuh:
   rules:
@@ -34,7 +34,7 @@ validate_wazuh:
     - export YC_FOLDER_ID=$(yc config get folder-id)
     - packer validate wazuh-server.pkr.hcl
   tags:
-    - packer-shell
+    - shell
 
 build_ubuntu:
   rules:
@@ -48,7 +48,7 @@ build_ubuntu:
     - export YC_FOLDER_ID=$(yc config get folder-id)
     - packer build ubuntu.pkr.hcl
   tags:
-    - packer-shell
+    - shell
 
 build_wazuh:
   rules:
@@ -62,4 +62,4 @@ build_wazuh:
     - export YC_FOLDER_ID=$(yc config get folder-id)
     - packer build wazuh-server.pkr.hcl
   tags:
-    - packer-shell
+    - shell
