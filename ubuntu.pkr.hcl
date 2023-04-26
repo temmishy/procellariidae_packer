@@ -27,7 +27,7 @@ source "yandex" "yc-toolbox" {
   use_ipv4_nat        = "true"
   image_description   = "Yandex Cloud Ubuntu Toolbox image"
   image_family        = "my-images"
-  image_name          = "tomcat"
+  image_name          = "ubuntu"
   subnet_id           = "${var.YC_SUBNET_ID}"
   disk_type           = "network-hdd"
   zone                = "${var.YC_ZONE}"
@@ -50,6 +50,7 @@ build {
 
       # Clean
       "rm -rf .sudo_as_admin_successful",
+
     ]
   }
 }
