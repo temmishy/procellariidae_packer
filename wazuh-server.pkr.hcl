@@ -60,6 +60,7 @@ build {
 
       # Clean
       "rm -rf .sudo_as_admin_successful",
+      
     ]
   }
 }
